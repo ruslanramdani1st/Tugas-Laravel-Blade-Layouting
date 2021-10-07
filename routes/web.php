@@ -18,9 +18,9 @@ Route::get('contact', function () {
     return view('layouts.contact');
 })->name('contact');
 
-Route::get('dasboard', function () {
-    return view('admin.admin');
-});
+// Route::get('dasboard', function () {
+//     return view('admin.admin');
+// });
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {

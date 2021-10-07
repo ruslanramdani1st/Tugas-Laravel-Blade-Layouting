@@ -1,7 +1,7 @@
 @extends('admin.admin')
 
 @section('title')
-Tampilan Admin
+L L A N N | Admin
 @endsection
 
 @section('content')
