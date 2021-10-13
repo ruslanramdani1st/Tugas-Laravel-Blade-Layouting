@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class usersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        // url/user
-        // get
-
-        // halaman Utama
-        $nama = "Ruslan";
-        $namaBelakang = "Ruslan Ramdani";
-        return view('user.index', compact('nama', 'namaBelakang'));
+        $indexx = "Ini halaman index Ruslan Ramdani";
+        return view('layouts.admin.indexx', compact('indexx'));
     }
 
     /**
@@ -29,13 +24,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        // url/user/create
-        // get
-
-        // Halaman Menambahkan data
-        $kelas = "XII RPL 3";
-        $sekolah = "SMK Asslaam Bandung";
-        return view('user.create', compact('kelas', 'sekolah'));
+        $create = "Ini halaman create Ruslan Ramdani";
+        return view('layouts.admin.create', compact('create'));
     }
 
     /**
@@ -46,7 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // Proses nambahkan data
+        //
     }
 
     /**
@@ -57,7 +47,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // Halaman menampilkan data
+        return view('layouts.admin.show', compact('id'));
     }
 
     /**
@@ -68,8 +58,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        // Halaman edit data by $id
-        return "Nama saya adalah : " . $id;
+        $jk = "Laki";
+        return view('layouts.admin.edit', compact('id','jk'));
     }
 
     /**
@@ -81,7 +71,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Halaman Proses edit data
+        //
     }
 
     /**
@@ -92,6 +82,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        // Proses hapus data
+        //
     }
 }

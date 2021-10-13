@@ -1,5 +1,8 @@
 <?php
 use Illuminate\Routing\RouteGroup;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\bookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,7 +26,12 @@ Route::get('contact', function () {
 // });
 
 Route::prefix('admin')->group(function () {
+    Route::resource('users', UsersController::class);
+    Route::resource('book', bookController::class);
     Route::get('/', function () {
         return view('layouts.admin.index');
     });
 });
+
+// Controller
+Route::resource('user', UserController::class);

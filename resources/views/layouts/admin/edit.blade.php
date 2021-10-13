@@ -5,9 +5,10 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Dasboard</h1>
+<h1>Halaman EDIT</h1>
 @endsection
 
 @section('content')
-Halaman Admin
+Nama : {{$id}} <br>
+Jenis Kelamin : {{$jk}}
 @endsection
