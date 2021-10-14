@@ -5,9 +5,10 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Halaman INDEX BOOK Ruslan Ramdani</h1>
+<h1>Halaman EDIT USERS</h1>
 @endsection
 
 @section('content')
-{{$index}}
+Nama : {{$id}} <br>
+Jenis Kelamin : {{$jk}}
 @endsection

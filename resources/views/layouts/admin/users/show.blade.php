@@ -5,9 +5,9 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Halaman INDEX BOOK Ruslan Ramdani</h1>
+<h1>Halaman SHOW USERS</h1>
 @endsection
 
 @section('content')
-{{$index}}
+Name Users : {{$id}}
 @endsection

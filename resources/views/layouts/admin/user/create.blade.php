@@ -5,10 +5,10 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Halaman EDIT</h1>
+<h1>Halaman CREATE USER</h1>
 @endsection
-
+<br>
 @section('content')
-Nama : {{$id}} <br>
-Jenis Kelamin : {{$jk}}
+Kelas : {{$kelas}} <br>
+Sekolah : {{$sekolah}}
 @endsection

@@ -5,10 +5,10 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Halaman EDIT</h1>
+<h1>Halaman EDIT BOOK</h1>
 @endsection
 
 @section('content')
-Nama : {{$id}} <br>
-Jenis Kelamin : {{$jk}}
+Name Book: {{$id}} <br>
+Jenis Book : {{$jb}}
 @endsection

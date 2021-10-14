@@ -13,8 +13,9 @@ class usersController extends Controller
      */
     public function index()
     {
+        // url/users
         $indexx = "Ini halaman index Ruslan Ramdani";
-        return view('layouts.admin.indexx', compact('indexx'));
+        return view('layouts.admin.users.indexx', compact('indexx'));
     }
 
     /**
@@ -24,8 +25,9 @@ class usersController extends Controller
      */
     public function create()
     {
+        // url/users/create
         $create = "Ini halaman create Ruslan Ramdani";
-        return view('layouts.admin.create', compact('create'));
+        return view('layouts.admin.users.create', compact('create'));
     }
 
     /**
@@ -47,7 +49,8 @@ class usersController extends Controller
      */
     public function show($id)
     {
-        return view('layouts.admin.show', compact('id'));
+        // URL/user/paramer(id)
+        return view('layouts.admin.users.show', compact('id'));
     }
 
     /**
@@ -59,7 +62,7 @@ class usersController extends Controller
     public function edit($id)
     {
         $jk = "Laki";
-        return view('layouts.admin.edit', compact('id','jk'));
+        return view('layouts.admin.users.edit', compact('id','jk'));
     }
 
     /**

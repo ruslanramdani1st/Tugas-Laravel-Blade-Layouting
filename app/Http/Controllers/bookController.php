@@ -13,8 +13,8 @@ class usersController extends Controller
      */
     public function index()
     {
-        $indexx = "Ini halaman index Ruslan Ramdani";
-        return view('layouts.admin.book.index', compact('indexx'));
+        $index = "Ini halaman index Ruslan Ramdani";
+        return view('layouts.admin.book.index', compact('index'));
     }
 
     /**
@@ -24,8 +24,8 @@ class usersController extends Controller
      */
     public function create()
     {
-        $create = "Ini halaman create Ruslan Ramdani";
-        return view('layouts.admin.create', compact('create'));
+        $create = "Ini halaman CREATE BOOK Ruslan Ramdani";
+        return view('layouts.admin.book.create', compact('create'));
     }
 
     /**
@@ -47,7 +47,7 @@ class usersController extends Controller
      */
     public function show($id)
     {
-        return view('layouts.admin.show', compact('id'));
+        return view('layouts.admin.book.show', compact('id'));
     }
 
     /**
@@ -58,8 +58,8 @@ class usersController extends Controller
      */
     public function edit($id)
     {
-        $jk = "Laki";
-        return view('layouts.admin.edit', compact('id','jk'));
+        $jb = "Romance";
+        return view('layouts.admin.book.edit', compact('id','jb'));
     }
 
     /**

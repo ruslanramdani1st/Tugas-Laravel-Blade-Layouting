@@ -69,7 +69,7 @@ class UserController extends Controller
     public function edit($id)
     {
         // Halaman edit data by $id
-        return "Nama saya adalah : " . $id;
+        return view('user.edit', compact('$id'));
     }
 
     /**
