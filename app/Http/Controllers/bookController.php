@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\book;
+
 use Illuminate\Http\Request;
 
-class usersController extends Controller
+class bookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,12 @@ class usersController extends Controller
      */
     public function index()
     {
-        $index = "Ini halaman index Ruslan Ramdani";
-        return view('layouts.admin.book.index', compact('index'));
+        // URL/book/
+        // $index = "Ini halaman index Ruslan Ramdani";
+        // return view('layouts.admin.book.index', compact('index'));
+
+        $buku = Book::all();
+        return view('layouts.admin.book.index', compact('buku'));
     }
 
     /**
@@ -24,7 +30,7 @@ class usersController extends Controller
      */
     public function create()
     {
-        $create = "Ini halaman CREATE BOOK Ruslan Ramdani";
+        $create = "Ini halaman CREATE BOOK";
         return view('layouts.admin.book.create', compact('create'));
     }
 

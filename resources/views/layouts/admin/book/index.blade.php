@@ -5,9 +5,16 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Halaman INDEX BOOK Ruslan Ramdani</h1>
+<h1>Halaman INDEX BOOK</h1>
 @endsection
 
 @section('content')
-{{$index}}
+
+@foreach ($buku as $book)
+Nama buku : {{ $book->nama_buku}} <br>
+
+Jumlah buku : {{ $book->jumlah_halaman}} <br>
+
+Translate Judul buku : {{ $book->translate_judul_buku}} <br> <br>
+@endforeach
 @endsection
