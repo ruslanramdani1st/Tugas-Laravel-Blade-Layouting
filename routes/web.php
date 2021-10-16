@@ -3,6 +3,7 @@ use Illuminate\Routing\RouteGroup;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\bookController;
+use App\Http\Controllers\PengarangController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -35,3 +36,4 @@ Route::prefix('admin')->group(function () {
 Route::resource('user', UserController::class);
 Route::resource('users', UsersController::class);
 Route::resource('book', bookController::class);
+Route::resource('penulis', PengarangController::class);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Pengarang;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class PengarangController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class PengarangController extends Controller
      */
     public function index()
     {
-        //
+        $penulis = Pengarang::all();
+        return view('layouts.admin.penulis.index', compact('penulis'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PengarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.admin.penulis.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class PengarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $penulis = new Pengarang();
+        $penulis->nama = $request->nama;
+        $penulis->email = $request->email;
+        $penulis->tlp = $request->tlp;
+        $penulis->save();
+        // dd($penulis);
+        return redirect()->route('layouts.admin.penulis.index');
     }
 
     /**
