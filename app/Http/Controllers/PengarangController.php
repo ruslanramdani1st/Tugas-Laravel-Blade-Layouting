@@ -44,7 +44,7 @@ class PengarangController extends Controller
         $penulis->tlp = $request->tlp;
         $penulis->save();
         // dd($penulis);
-        return redirect()->route('layouts.admin.penulis.index');
+        return redirect()->route('penulis.index');
     }
 
     /**
