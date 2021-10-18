@@ -14,7 +14,7 @@ L L A N N | Admin
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Data Penulis
-                    <a href="{{route('penulis.create')}}" class="btn btn-sm btn-primary float-right">Tambah</a>
+                    <a href="{{route('pengarang.create')}}" class="btn btn-sm btn-primary float-right">Tambah</a>
                 </div>
 
                 <div class="card-body">
@@ -29,7 +29,7 @@ L L A N N | Admin
                                 <th>Aksi</th>
                             </tr>
                             @php $no = 1; @endphp
-                            @foreach($penulis as $data)
+                            @foreach($pengarang as $data)
                             <tr>
                                 <td>
                                     {{$no++}}
@@ -44,9 +44,15 @@ L L A N N | Admin
                                     {{$data->tlp}}
                                 </td>
                                 <td>
-                                    <button class="btn btn-success">Edit</button> |
-                                    <button class="btn btn-warning">Show</button> |
-                                    <button class="btn btn-danger">Delete</button>
+                                    <form action="{{ route('pengarang.destroy', $data->id)}}" method="POST">
+                                        <a href="{{ route('pengarang.edit', $data->id)}}" class="btn btn-success">Edit</a> |
+                                        <a href="{{ route('pengarang.show', $data->id)}}" class="btn btn-warning">Show</a> |
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger" type="submit">
+                                            Hapus
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

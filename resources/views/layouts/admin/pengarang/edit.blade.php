@@ -5,7 +5,7 @@ L L A N N | Admin
 @endsection
 
 @section('judulnya')
-<h1>Halaman CREATE BOOK</h1>
+<h1>Edit Pengarang</h1>
 @endsection
 
 @section('content')
@@ -14,26 +14,28 @@ L L A N N | Admin
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Tambah Data Penulis
+                    Edit Pengarang
+                    <a href="{{route('pengarang.index')}}" class="btn btn-sm btn-primary float-right">Kembali</a>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('penulis.store')}}" method="post">
+                    <form action="{{route('pengarang.update', $pengarang->id)}}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
-                            <label for="">Nama Penulis</label>
-                            <input type="text" class="form-control" name="nama" required>
+                            <label for="">Nama Pengarang</label>
+                            <input type="text" value="{{$pengarang->nama}}" class="form-control" name="nama" required>
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" required>
+                            <input type="email" value="{{$pengarang->email}}" class="form-control" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="">Telepon</label>
-                            <input type="text" class="form-control" name="tlp" required>
+                            <input type="text" value="{{$pengarang->tlp}}" class="form-control" name="tlp" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">
-                                Simpan
+                                EDIT
                             </button>
                         </div>
                     </form>

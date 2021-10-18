@@ -16,8 +16,8 @@ class PengarangController extends Controller
      */
     public function index()
     {
-        $penulis = Pengarang::all();
-        return view('layouts.admin.penulis.index', compact('penulis'));
+        $pengarang = Pengarang::all();
+        return view('layouts.admin.pengarang.index', compact('pengarang'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PengarangController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.penulis.create');
+        return view('layouts.admin.pengarang.create');
     }
 
     /**
@@ -38,13 +38,18 @@ class PengarangController extends Controller
      */
     public function store(Request $request)
     {
-        $penulis = new Pengarang();
-        $penulis->nama = $request->nama;
-        $penulis->email = $request->email;
-        $penulis->tlp = $request->tlp;
-        $penulis->save();
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|unique:pengarangs,email',
+            'tlp' => 'required|unique:pengarangs,tlp'
+        ]);
+        $pengarang = new Pengarang();
+        $pengarang->nama = $request->nama;
+        $pengarang->email = $request->email;
+        $pengarang->tlp = $request->tlp;
+        $pengarang->save();
         // dd($penulis);
-        return redirect()->route('penulis.index');
+        return redirect()->route('pengarang.index');
     }
 
     /**
@@ -53,9 +58,10 @@ class PengarangController extends Controller
      * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function show(Pengarang $pengarang)
+    public function show($id)
     {
-        //
+        $pengarang = Pengarang::findOrFail($id);
+        return view('layouts.admin.pengarang.show', compact('pengarang'));
     }
 
     /**
@@ -64,9 +70,10 @@ class PengarangController extends Controller
      * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pengarang $pengarang)
+    public function edit($id)
     {
-        //
+        $pengarang = Pengarang::findOrFail($id);
+        return view('layouts.admin.pengarang.edit', compact('pengarang'));
     }
 
     /**
@@ -76,9 +83,20 @@ class PengarangController extends Controller
      * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pengarang $pengarang)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|unique:pengarangs,email,' .$id,
+            'tlp' => 'required|unique:pengarangs,tlp,' .$id
+        ]);
+        $pengarang = Pengarang::findOrFail($id);
+        $pengarang->nama = $request->nama;
+        $pengarang->email = $request->email;
+        $pengarang->tlp = $request->tlp;
+        $pengarang->save();
+        // dd($penulis);
+        return redirect()->route('pengarang.index');
     }
 
     /**
@@ -87,8 +105,10 @@ class PengarangController extends Controller
      * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pengarang $pengarang)
+    public function destroy($id)
     {
-        //
+        Pengarang::findOrFail($id)->delete();
+        return redirect()->route('pengarang.index');
+
     }
 }

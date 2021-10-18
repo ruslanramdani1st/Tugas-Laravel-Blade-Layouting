@@ -36,4 +36,4 @@ Route::prefix('admin')->group(function () {
 Route::resource('user', UserController::class);
 Route::resource('users', UsersController::class);
 Route::resource('book', bookController::class);
-Route::resource('penulis', PengarangController::class);
+Route::resource('pengarang', PengarangController::class);
